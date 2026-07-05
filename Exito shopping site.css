@@ -1,0 +1,365 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    background-color: #002924;
+    background-image: url('Spongebob\ darktheme.jpeg');
+    background-size: cover;
+    /* Makes the background image cover the entire page */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style the logo icon and storename*/
+.logo-icon {
+    position: fixed;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #dee683;
+    /* Bright cream color for the logo */
+    margin-right: 20px;
+    /* Adds a small space between the logo and the store name */
+    transform: translateX(600%);
+}
+
+.store-name {
+    position: fixed;
+    top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #dee683;
+    /* Bright cream color for the store name */
+    margin-left: 50px;
+    /* Adds a small space between the logo and the store name */
+    margin-top: 3px;
+    transform: translateX(300%);
+}
+
+/* Turns the whole page layout into a row */
+.main-layout-wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    /* Takes up the full height of the screen */
+}
+
+
+/*START HERE TO LEARN IN YOUR NEXT CLASS AND ALSO RESIZE THE MENU*/
+/* Style the Sidebar (Kept exactly as you had it, but added overflow: visible) */
+.side-navigation {
+    width: 140px;
+    background-color: #43605f;
+    color: white;
+    padding: 10px;
+    top: 50px;
+    height: max-content;
+    /* CHANGED: Changed from auto to visible so the dropdown can pop out of the sidebar box */
+    overflow: visible;
+    float: left;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+/* 1. Set up the dropdown wrapper container inside the sidebar */
+.dropdown-menu {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Style your "☰ Menu" text toggle trigger */
+.dropdown-menu span {
+    display: block;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* 2. Style the dropdown content box (Modified to work inside your sidebar) */
+.side-navigation .dropdown-content {
+    display: none;
+    /* Hides the list by default */
+    position: absolute;
+    /* Positions the dropdown list perfectly to the right side of your sidebar */
+    top: 0;
+    left: 100%;
+    background-color: #43605f;
+    /* Matches your sleek sidebar color */
+    min-width: 160px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    list-style: none;
+    /* Removes default bullet points */
+    padding: 5px;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    /* Smooth rounded corners on the right side */
+}
+
+/* 3. The magic hover action that opens the dropdown */
+.dropdown-menu:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the links inside the dropdown list (Uses your exact font choices and colors) */
+.side-navigation .dropdown-content a {
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+/* Uses your cream hover effect for the dropdown links too */
+.side-navigation .dropdown-content a:hover {
+    background-color: #dee683;
+    color: black;
+}
+
+.side-navigation .dropdown-content a:active {
+    background-color: #dee683;
+    color: #6fe1dd;
+}
+
+.content-wrapper {
+    flex: 1;
+    /* Takes up all remaining horizontal space and tells the flexbox this container can shrink smaller */
+    padding: 20px;
+    background-color: #002924;
+    margin-top: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    min-width: 0;
+    width: 100%;
+    /* Drops elements safely if screen shrinks */
+    max-width: auto;
+    flex-wrap: wrap;
+    gap: 0px;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+/* Tell the main container to line up items horizontally */
+/* FORCE HORIZONTAL SCROLL: Completely overrides any parent constraints */
+.products-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    /* Prevents the cards from wrapping to the next line */
+    gap: 8px !important;
+
+    /* Forces the container to stay within the screen and scroll sideways */
+    width: 100% !important;
+    max-width: 78vw !important;
+    box-sizing: border-box !important;
+
+    /* Enables horizontal scrolling mechanics */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    /* Perfect alignment padding */
+    padding-block: 10px;
+    padding-inline-start: 10px;
+    /* Aligns first card nicely with screen edge */
+    padding-inline-end: 40px;
+    /* Leaves breath
+
+    /* Hides scrollbars on Firefox and Edge */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.products-container>div {
+    flex: 1 1 200px;
+    /* Allows the cards to grow and shrink, but not below 200px */
+    max-width: 280px;
+    /* Prevents the cards from growing too large */
+    flex-shrink: 0;
+}
+
+/* Hides scrollbars on Chrome, Safari, and Opera */
+.products-container::-webkit-scrollbar {
+    display: none !important;
+}
+
+
+/* CARDS: Prevents shrinking and forces them into a rigid grid line */
+.product-card {
+    display: flex !important;
+    flex: 0 0 220px !important;
+    flex-direction: column !important;
+
+    /* CRITICAL: Stops browser from squishing the cards onto one screen */
+    flex-shrink: 0 !important;
+    width: 180px !important;
+    height: 300px !important;
+    box-sizing: border-box !important;
+
+    /* Visual styling */
+    background-color: #a2eded9a;
+    color: rgb(246, 246, 246);
+    border: 1px solid #171616;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+/* Ensure the product images don't break out of the card */
+.product-card img {
+    width: 100%;
+    /* Tells the image to fit the exact width of the card */
+    height: 150px;
+    /* Maintains the image's original proportions */
+    border-radius: 4px;
+    /* Optional: slightly rounds the image corners */
+    object-fit: inherit;
+    /* Ensures the image scales nicely without distortion */
+}
+
+/* TRUNCATE TEXT: Shortens descriptions cleanly inside the cards */
+.product-card p {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    /* Change this to 1 or 3 if you want more/fewer lines */
+    line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    /* Hides the text that goes past 2 lines */
+    text-overflow: ellipsis !important;
+    /* Automatically adds the "..." at the end */
+
+    /* CRITICAL: Overrides previous code so text wraps normally instead of stretching out */
+    white-space: normal !important;
+    margin-top: 8px;
+    /* Adds a little breathing room below the image */
+}
+
+.content-wrapper section:first-child {
+    position: relative;
+    /* Creates layout anchor for the transparent fade gradient */
+    width: 100%;
+}
+
+.content-wrapper section:last-child {
+    position: relative;
+    /* Creates layout anchor for the transparent fade gradient */
+    width: 100%;
+}
+
+.content-wrapper section:last-child::before {
+    content: "🡸";
+    /* Injects a clean arrow symbol at the end */
+    position: absolute;
+    left: 0;
+    top: 40px;
+    /* Aligns arrow directly over the product cards row */
+    bottom: 0;
+    width: 60px;
+
+    /* Creates a beautiful transparent fade into your green background color */
+    background: linear-gradient(to left, transparent, rgba(0, 41, 36, 0.95));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    pointer-events: auto;
+    /* Allows users to click on products straight through the fade */
+    opacity: 0.85;
+    z-index: 10;
+}
+
+.content-wrapper section:last-child::after {
+    content: "🡺";
+    /* Injects a clean arrow symbol at the end */
+    position: absolute;
+    right: 0;
+    top: 40px;
+    /* Aligns arrow directly over the product cards row */
+    bottom: 0;
+    width: 60px;
+
+    /* Creates a beautiful transparent fade into your green background color */
+    background: linear-gradient(to right, transparent, rgba(0, 41, 36, 0.95));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    pointer-events: auto;
+    /* allows us to click on arrows  */
+    /* Allows users to click on products straight through the fade */
+    opacity: 0.85;
+    z-index: 10;
+}
+
+.btn {
+    background-color: #6fe1dd;
+    color: #0f9d3e;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #dee683;
+}
+
+
+/* Style the main footer block background */
+.site-footer {
+    background-color: #1a2c2c;
+    /* Matches your sidebar background */
+    color: #e0e0e0;
+    padding: 10px 10px;
+    margin-top: 60px;
+    /* Pushes the footer away from your products/cart */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Arrange the footer items into a clean row or layout grid */
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Spreads items evenly across left, middle, right */
+    align-items: center;
+    flex-wrap: wrap;
+    /* Drops elements safely if screen shrinks */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centers the footer content */
+    gap: 20px;
+}
+
+/* Style the text links inside the footer */
+.footer-links a,
+.footer-socials a {
+    color: #a0b0b0;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+/* Hover effects for footer links */
+.footer-links a:hover,
+.footer-socials a:hover {
+    color: #dee683;
+    /* Text turns bright white when hovered */
+    text-decoration: underline;
+}
